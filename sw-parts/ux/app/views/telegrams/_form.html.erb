@@ -1,0 +1,129 @@
+<%= form_for(@telegram) do |f| %>
+  <% if @telegram.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@telegram.errors.count, "error") %> prohibited this telegram from being saved:</h2>
+
+      <ul>
+      <% @telegram.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :reported_on %><br>
+    <%= f.datetime_select :reported_on %>
+  </div>
+  <div class="field">
+    <%= f.label :telegram_type %><br>
+    <%= f.text_field :telegram_type %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :user_hash %><br>
+    <%= f.text_field :user_hash %>
+  </div>
+  <div class="field">
+    <%= f.label :telegram_cycle_counter %><br>
+    <%= f.number_field :telegram_cycle_counter %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :group %><br>
+    <%= f.text_field :group %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br>
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.label :lan_ip %><br>
+    <%= f.text_field :lan_ip %>
+  </div>
+  <div class="field">
+    <%= f.label :ext_pm25_sensor %><br>
+    <%= f.text_field :ext_pm25_sensor %>
+  </div>
+  <div class="field">
+    <%= f.label :ext_pm1_sensor %><br>
+    <%= f.text_field :ext_pm1_sensor %>
+  </div>
+  <div class="field">
+    <%= f.label :int_pm25_sensor %><br>
+    <%= f.text_field :int_pm25_sensor %>
+  </div>
+  <div class="field">
+    <%= f.label :int_pm1_sensor %><br>
+    <%= f.text_field :int_pm1_sensor %>
+  </div>
+  <div class="field">
+    <%= f.label :sensor_board_cycle_counter %><br>
+    <%= f.number_field :sensor_board_cycle_counter %>
+  </div>
+  <div class="field">
+    <%= f.label :ext_tacho_sensor_fan %><br>
+    <%= f.number_field :ext_tacho_sensor_fan %>
+  </div>
+  <div class="field">
+    <%= f.label :int_tacho_sensor_fan %><br>
+    <%= f.number_field :int_tacho_sensor_fan %>
+  </div>
+  <div class="field">
+    <%= f.label :fan_speed_setting %><br>
+    <%= f.number_field :fan_speed_setting %>
+  </div>
+  <div class="field">
+    <%= f.label :fan_target_speed %><br>
+    <%= f.number_field :fan_target_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :temperature_celsius %><br>
+    <%= f.text_field :temperature_celsius %>
+  </div>
+  <div class="field">
+    <%= f.label :temperature_fahrenheit %><br>
+    <%= f.text_field :temperature_fahrenheit %>
+  </div>
+  <div class="field">
+    <%= f.label :humidity_percentage %><br>
+    <%= f.text_field :humidity_percentage %>
+  </div>
+  <div class="field">
+    <%= f.label :tacho_primary_fan_0 %><br>
+    <%= f.number_field :tacho_primary_fan_0 %>
+  </div>
+  <div class="field">
+    <%= f.label :tacho_primary_fan_1 %><br>
+    <%= f.number_field :tacho_primary_fan_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :tacho_primary_fan_2 %><br>
+    <%= f.number_field :tacho_primary_fan_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :tacho_primary_fan_3 %><br>
+    <%= f.number_field :tacho_primary_fan_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :ip %><br>
+    <%= f.text_field :ip %>
+  </div>
+  <div class="field">
+    <%= f.label :port %><br>
+    <%= f.number_field :port %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

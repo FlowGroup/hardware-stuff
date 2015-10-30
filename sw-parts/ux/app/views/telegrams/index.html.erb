@@ -1,0 +1,79 @@
+<h1>Listing telegrams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reported on</th>
+      <th>Telegram type</th>
+      <th>Model</th>
+      <th>User</th>
+      <th>User hash</th>
+      <th>Telegram cycle counter</th>
+      <th>Location</th>
+      <th>Group</th>
+      <th>Unit</th>
+      <th>Lan ip</th>
+      <th>Ext pm25 sensor</th>
+      <th>Ext pm1 sensor</th>
+      <th>Int pm25 sensor</th>
+      <th>Int pm1 sensor</th>
+      <th>Sensor board cycle counter</th>
+      <th>Ext tacho sensor fan</th>
+      <th>Int tacho sensor fan</th>
+      <th>Fan speed setting</th>
+      <th>Fan target speed</th>
+      <th>Temperature celsius</th>
+      <th>Temperature fahrenheit</th>
+      <th>Humidity percentage</th>
+      <th>Tacho primary fan 0</th>
+      <th>Tacho primary fan 1</th>
+      <th>Tacho primary fan 2</th>
+      <th>Tacho primary fan 3</th>
+      <th>Ip</th>
+      <th>Port</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @telegrams.each do |telegram| %>
+      <tr>
+        <td><%= telegram.reported_on %></td>
+        <td><%= telegram.telegram_type %></td>
+        <td><%= telegram.model %></td>
+        <td><%= telegram.user %></td>
+        <td><%= telegram.user_hash %></td>
+        <td><%= telegram.telegram_cycle_counter %></td>
+        <td><%= telegram.location %></td>
+        <td><%= telegram.group %></td>
+        <td><%= telegram.unit %></td>
+        <td><%= telegram.lan_ip %></td>
+        <td><%= telegram.ext_pm25_sensor %></td>
+        <td><%= telegram.ext_pm1_sensor %></td>
+        <td><%= telegram.int_pm25_sensor %></td>
+        <td><%= telegram.int_pm1_sensor %></td>
+        <td><%= telegram.sensor_board_cycle_counter %></td>
+        <td><%= telegram.ext_tacho_sensor_fan %></td>
+        <td><%= telegram.int_tacho_sensor_fan %></td>
+        <td><%= telegram.fan_speed_setting %></td>
+        <td><%= telegram.fan_target_speed %></td>
+        <td><%= telegram.temperature_celsius %></td>
+        <td><%= telegram.temperature_fahrenheit %></td>
+        <td><%= telegram.humidity_percentage %></td>
+        <td><%= telegram.tacho_primary_fan_0 %></td>
+        <td><%= telegram.tacho_primary_fan_1 %></td>
+        <td><%= telegram.tacho_primary_fan_2 %></td>
+        <td><%= telegram.tacho_primary_fan_3 %></td>
+        <td><%= telegram.ip %></td>
+        <td><%= telegram.port %></td>
+        <td><%= link_to 'Show', telegram %></td>
+        <td><%= link_to 'Edit', edit_telegram_path(telegram) %></td>
+        <td><%= link_to 'Destroy', telegram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Telegram', new_telegram_path %>

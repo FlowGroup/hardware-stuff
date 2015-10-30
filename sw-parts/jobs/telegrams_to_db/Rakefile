@@ -1,0 +1,12 @@
+require 'rake/testtask'
+
+Rake::TestTask.new do |t|
+  # clean application
+  sh 'rake -f ../../ux/Rakefile db:migrate:redo'
+  t.libs << 'lib'
+  t.libs << 'test'
+  cp 'test/1416423006.0.8171890062168324.udp', 'test/test_data/'
+end
+
+desc "Run tests"
+task :default => :test

@@ -1,0 +1,93 @@
+<%= form_for(@station_datum) do |f| %>
+  <% if @station_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@station_datum.errors.count, "error") %> prohibited this station_datum from being saved:</h2>
+
+      <ul>
+      <% @station_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :aqi %><br>
+    <%= f.number_field :aqi %>
+  </div>
+  <div class="field">
+    <%= f.label :co %><br>
+    <%= f.text_field :co %>
+  </div>
+  <div class="field">
+    <%= f.label :co_24h %><br>
+    <%= f.text_field :co_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :no2 %><br>
+    <%= f.number_field :no2 %>
+  </div>
+  <div class="field">
+    <%= f.label :no2_24h %><br>
+    <%= f.number_field :no2_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :o3 %><br>
+    <%= f.number_field :o3 %>
+  </div>
+  <div class="field">
+    <%= f.label :o3_24h %><br>
+    <%= f.number_field :o3_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :o3_8h %><br>
+    <%= f.number_field :o3_8h %>
+  </div>
+  <div class="field">
+    <%= f.label :o3_8h_24h %><br>
+    <%= f.number_field :o3_8h_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :pm10 %><br>
+    <%= f.number_field :pm10 %>
+  </div>
+  <div class="field">
+    <%= f.label :pm10_24h %><br>
+    <%= f.number_field :pm10_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :pm2_5 %><br>
+    <%= f.number_field :pm2_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :pm2_5_24h %><br>
+    <%= f.number_field :pm2_5_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :primary_pollutant %><br>
+    <%= f.text_field :primary_pollutant %>
+  </div>
+  <div class="field">
+    <%= f.label :quality %><br>
+    <%= f.text_field :quality %>
+  </div>
+  <div class="field">
+    <%= f.label :so2 %><br>
+    <%= f.number_field :so2 %>
+  </div>
+  <div class="field">
+    <%= f.label :so2_24h %><br>
+    <%= f.number_field :so2_24h %>
+  </div>
+  <div class="field">
+    <%= f.label :time_point %><br>
+    <%= f.text_field :time_point %>
+  </div>
+  <div class="field">
+    <%= f.label :station_id %><br>
+    <%= f.text_field :station_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

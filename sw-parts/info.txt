@@ -1,0 +1,11 @@
+rails generate scaffold Telegram reported_on:timestamp telegram_type:string model:string user:string user_hash:string telegram_cycle_counter:integer location:string group:string unit:string lan_ip:string ext_pm25_sensor:float ext_pm1_sensor:float int_pm25_sensor:float int_pm1_sensor:float sensor_board_cycle_counter:integer ext_tacho_sensor_fan:integer int_tacho_sensor_fan:integer fan_speed_setting:integer fan_target_speed:integer temperature_celsius:float temperature_fahrenheit:float humidity_percentage:float tacho_primary_fan_0:integer tacho_primary_fan_1:integer tacho_primary_fan_2:integer tacho_primary_fan_3:integer ip:string port:integer
+
+
+# start telegram server
+ruby telegram_server/telegram_server.rb
+
+# start telegram importer
+ruby jobs/telegrams_to_db/bin/cron_it.rb
+
+# start global china environment value collection
+ruby jobs/pm25in/pm25in.rb

@@ -1,0 +1,61 @@
+<h1>Listing station_data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aqi</th>
+      <th>Co</th>
+      <th>Co 24h</th>
+      <th>No2</th>
+      <th>No2 24h</th>
+      <th>O3</th>
+      <th>O3 24h</th>
+      <th>O3 8h</th>
+      <th>O3 8h 24h</th>
+      <th>Pm10</th>
+      <th>Pm10 24h</th>
+      <th>Pm2 5</th>
+      <th>Pm2 5 24h</th>
+      <th>Primary pollutant</th>
+      <th>Quality</th>
+      <th>So2</th>
+      <th>So2 24h</th>
+      <th>Time point</th>
+      <th>Station</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @station_data.each do |station_datum| %>
+      <tr>
+        <td><%= station_datum.aqi %></td>
+        <td><%= station_datum.co %></td>
+        <td><%= station_datum.co_24h %></td>
+        <td><%= station_datum.no2 %></td>
+        <td><%= station_datum.no2_24h %></td>
+        <td><%= station_datum.o3 %></td>
+        <td><%= station_datum.o3_24h %></td>
+        <td><%= station_datum.o3_8h %></td>
+        <td><%= station_datum.o3_8h_24h %></td>
+        <td><%= station_datum.pm10 %></td>
+        <td><%= station_datum.pm10_24h %></td>
+        <td><%= station_datum.pm2_5 %></td>
+        <td><%= station_datum.pm2_5_24h %></td>
+        <td><%= station_datum.primary_pollutant %></td>
+        <td><%= station_datum.quality %></td>
+        <td><%= station_datum.so2 %></td>
+        <td><%= station_datum.so2_24h %></td>
+        <td><%= station_datum.time_point %></td>
+        <td><%= station_datum.station %></td>
+        <td><%= link_to 'Show', station_datum %></td>
+        <td><%= link_to 'Edit', edit_station_datum_path(station_datum) %></td>
+        <td><%= link_to 'Destroy', station_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Station datum', new_station_datum_path %>

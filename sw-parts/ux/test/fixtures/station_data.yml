@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aqi: 1
+  co: 1.5
+  co_24h: 1.5
+  no2: 1
+  no2_24h: 1
+  o3: 1
+  o3_24h: 1
+  o3_8h: 1
+  o3_8h_24h: 1
+  pm10: 1
+  pm10_24h: 1
+  pm2_5: 1
+  pm2_5_24h: 1
+  primary_pollutant: MyString
+  quality: MyString
+  so2: 1
+  so2_24h: 1
+  time_point: MyString
+  station_id: 
+
+two:
+  aqi: 1
+  co: 1.5
+  co_24h: 1.5
+  no2: 1
+  no2_24h: 1
+  o3: 1
+  o3_24h: 1
+  o3_8h: 1
+  o3_8h_24h: 1
+  pm10: 1
+  pm10_24h: 1
+  pm2_5: 1
+  pm2_5_24h: 1
+  primary_pollutant: MyString
+  quality: MyString
+  so2: 1
+  so2_24h: 1
+  time_point: MyString
+  station_id: 

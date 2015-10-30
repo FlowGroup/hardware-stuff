@@ -1,0 +1,144 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reported on:</strong>
+  <%= @telegram.reported_on %>
+</p>
+
+<p>
+  <strong>Telegram type:</strong>
+  <%= @telegram.telegram_type %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @telegram.model %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @telegram.user %>
+</p>
+
+<p>
+  <strong>User hash:</strong>
+  <%= @telegram.user_hash %>
+</p>
+
+<p>
+  <strong>Telegram cycle counter:</strong>
+  <%= @telegram.telegram_cycle_counter %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @telegram.location %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @telegram.group %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @telegram.unit %>
+</p>
+
+<p>
+  <strong>Lan ip:</strong>
+  <%= @telegram.lan_ip %>
+</p>
+
+<p>
+  <strong>Ext pm25 sensor:</strong>
+  <%= @telegram.ext_pm25_sensor %>
+</p>
+
+<p>
+  <strong>Ext pm1 sensor:</strong>
+  <%= @telegram.ext_pm1_sensor %>
+</p>
+
+<p>
+  <strong>Int pm25 sensor:</strong>
+  <%= @telegram.int_pm25_sensor %>
+</p>
+
+<p>
+  <strong>Int pm1 sensor:</strong>
+  <%= @telegram.int_pm1_sensor %>
+</p>
+
+<p>
+  <strong>Sensor board cycle counter:</strong>
+  <%= @telegram.sensor_board_cycle_counter %>
+</p>
+
+<p>
+  <strong>Ext tacho sensor fan:</strong>
+  <%= @telegram.ext_tacho_sensor_fan %>
+</p>
+
+<p>
+  <strong>Int tacho sensor fan:</strong>
+  <%= @telegram.int_tacho_sensor_fan %>
+</p>
+
+<p>
+  <strong>Fan speed setting:</strong>
+  <%= @telegram.fan_speed_setting %>
+</p>
+
+<p>
+  <strong>Fan target speed:</strong>
+  <%= @telegram.fan_target_speed %>
+</p>
+
+<p>
+  <strong>Temperature celsius:</strong>
+  <%= @telegram.temperature_celsius %>
+</p>
+
+<p>
+  <strong>Temperature fahrenheit:</strong>
+  <%= @telegram.temperature_fahrenheit %>
+</p>
+
+<p>
+  <strong>Humidity percentage:</strong>
+  <%= @telegram.humidity_percentage %>
+</p>
+
+<p>
+  <strong>Tacho primary fan 0:</strong>
+  <%= @telegram.tacho_primary_fan_0 %>
+</p>
+
+<p>
+  <strong>Tacho primary fan 1:</strong>
+  <%= @telegram.tacho_primary_fan_1 %>
+</p>
+
+<p>
+  <strong>Tacho primary fan 2:</strong>
+  <%= @telegram.tacho_primary_fan_2 %>
+</p>
+
+<p>
+  <strong>Tacho primary fan 3:</strong>
+  <%= @telegram.tacho_primary_fan_3 %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @telegram.ip %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @telegram.port %>
+</p>
+
+<%= link_to 'Edit', edit_telegram_path(@telegram) %> |
+<%= link_to 'Back', telegrams_path %>

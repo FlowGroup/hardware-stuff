@@ -1,0 +1,148 @@
+const unsigned int VERSION = 4;
+const unsigned int YEAR = 2014;
+const unsigned int MONTH = 7;
+const unsigned int DAY = 6;
+const unsigned long COLLECT_TIME_MS = 30000;
+const unsigned int SENSOR_1_PIN_1_MICRO = 6;
+const unsigned int SENSOR_1_PIN_2_5_MICRO = 4;
+const unsigned int SENSOR_2_PIN_1_MICRO = 10;
+const unsigned int SENSOR_2_PIN_2_5_MICRO = 12;
+
+/*
+   Check PM Values
+   
+   This function checks the PM low pulse occupancy.
+   
+   It needs the following parameters:
+     - pin: which pin to check?
+     - is_low: is the flank already low?
+     - start_low: the start time of the low flank
+     - low_sum: the total low flank sum for this period
+ */
+void
+checkPMSensor(unsigned int pin,
+              bool *is_low, 
+              unsigned long *start_low, 
+              unsigned long *low_sum) {
+
+  if (digitalRead(pin) == LOW) {
+    /* Low Flank */
+
+    if (*is_low == false) {
+      /* Just changed to low; lets start the timer */
+      *start_low = millis();
+      *is_low = true;
+    } else {
+      /* the low flank is still ongoing */
+    }
+  } else {
+    /* High Flank */
+
+    if (*is_low == true) {
+      /* Low flank complete */
+        
+      /* Calculate the duration of the low flank */
+      unsigned long duration = millis() - *start_low;
+        
+      /* Valid low flanks are only 10ms to 90ms long */
+      if (duration >= 10 && duration <= 90)
+        *low_sum += duration;
+        
+      *is_low = false;
+    } else {
+      /* Nothing todo during a high flank */
+    }
+  }
+}
+
+/* Initialize the MCU */
+void
+setup() {
+  Serial.begin(9600);
+
+  /* Configurate Pins */
+  pinMode(SENSOR_1_PIN_1_MICRO, INPUT);
+  pinMode(SENSOR_1_PIN_2_5_MICRO, INPUT);
+  pinMode(SENSOR_2_PIN_1_MICRO, INPUT);
+  pinMode(SENSOR_2_PIN_2_5_MICRO, INPUT);
+
+  /* Delay Boot */
+  delay(1000);
+
+  /* Boot Up Message */
+  Serial.print("B");
+  Serial.print(";V:");
+  Serial.print(VERSION);
+  Serial.print(";Y:");
+  Serial.print(YEAR);
+  Serial.print(";M:");
+  Serial.print(MONTH);
+  Serial.print(";D:");
+  Serial.print(DAY);
+  Serial.print(";T:");
+  Serial.print(COLLECT_TIME_MS);
+  Serial.print(";S1PM1:");
+  Serial.print(SENSOR_1_PIN_1_MICRO);
+  Serial.print(";S1PM25:");
+  Serial.print(SENSOR_1_PIN_2_5_MICRO);
+  Serial.print(";S2PM1:");
+  Serial.print(SENSOR_2_PIN_1_MICRO);
+  Serial.print(";S2PM25:");
+  Serial.print(SENSOR_2_PIN_2_5_MICRO);
+  Serial.println(";");
+}
+
+/* One cycle in the MCU */
+void
+loop() {
+  unsigned long sensor_1_start_low_pm_1_micro = 0;
+  unsigned long sensor_1_low_sum_pm_1_micro = 0;
+  bool sensor_1_pm_1_is_low = false;
+  unsigned long sensor_1_start_low_pm_2_5_micro = 0;
+  unsigned long sensor_1_low_sum_pm_2_5_micro = 0;
+  bool sensor_1_pm_2_5_is_low = false;
+  unsigned long sensor_2_start_low_pm_1_micro = 0;
+  unsigned long sensor_2_low_sum_pm_1_micro = 0;
+  bool sensor_2_pm_1_is_low = false;
+  unsigned long sensor_2_start_low_pm_2_5_micro = 0;
+  unsigned long sensor_2_low_sum_pm_2_5_micro = 0;
+  bool sensor_2_pm_2_5_is_low = false;
+  
+  /* Collect low flanks */
+  unsigned long target_time = millis() + COLLECT_TIME_MS;
+  while (target_time > millis()) {
+
+    /* Collect Data from Sensor 1 */
+    checkPMSensor(SENSOR_1_PIN_1_MICRO,
+                  &sensor_1_pm_1_is_low,
+                  &sensor_1_start_low_pm_1_micro,
+                  &sensor_1_low_sum_pm_1_micro);
+    checkPMSensor(SENSOR_1_PIN_2_5_MICRO,
+                  &sensor_1_pm_2_5_is_low,
+                  &sensor_1_start_low_pm_2_5_micro,
+                  &sensor_1_low_sum_pm_2_5_micro);
+ 
+    /* Collect Data from Sensor 2 */
+    checkPMSensor(SENSOR_2_PIN_1_MICRO,
+                  &sensor_2_pm_1_is_low,
+                  &sensor_2_start_low_pm_1_micro,
+                  &sensor_2_low_sum_pm_1_micro);
+    checkPMSensor(SENSOR_2_PIN_2_5_MICRO,
+                  &sensor_2_pm_2_5_is_low,
+                  &sensor_2_start_low_pm_2_5_micro,
+                  &sensor_2_low_sum_pm_2_5_micro);
+
+  } /* Finish collecting low flanks */
+  
+  /* Print Sensor Data */
+  Serial.print("V");
+  Serial.print(";");
+  Serial.print(sensor_1_low_sum_pm_1_micro);
+  Serial.print(";");
+  Serial.print(sensor_1_low_sum_pm_2_5_micro);
+  Serial.print(";");
+  Serial.print(sensor_2_low_sum_pm_1_micro);
+  Serial.print(";");
+  Serial.print(sensor_2_low_sum_pm_2_5_micro);
+  Serial.println(";");
+}

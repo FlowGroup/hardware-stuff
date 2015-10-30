@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reported_on: 2014-11-22 17:14:14
+  telegram_type: MyString
+  model: MyString
+  user: MyString
+  user_hash: MyString
+  telegram_cycle_counter: 1
+  location: MyString
+  group: MyString
+  unit: MyString
+  lan_ip: MyString
+  ext_pm25_sensor: 1.5
+  ext_pm1_sensor: 1.5
+  int_pm25_sensor: 1.5
+  int_pm1_sensor: 1.5
+  sensor_board_cycle_counter: 1
+  ext_tacho_sensor_fan: 1
+  int_tacho_sensor_fan: 1
+  fan_speed_setting: 1
+  fan_target_speed: 1
+  temperature_celsius: 1.5
+  temperature_fahrenheit: 1.5
+  humidity_percentage: 1.5
+  tacho_primary_fan_0: 1
+  tacho_primary_fan_1: 1
+  tacho_primary_fan_2: 1
+  tacho_primary_fan_3: 1
+  ip: MyString
+  port: 1
+
+two:
+  reported_on: 2014-11-22 17:14:14
+  telegram_type: MyString
+  model: MyString
+  user: MyString
+  user_hash: MyString
+  telegram_cycle_counter: 1
+  location: MyString
+  group: MyString
+  unit: MyString
+  lan_ip: MyString
+  ext_pm25_sensor: 1.5
+  ext_pm1_sensor: 1.5
+  int_pm25_sensor: 1.5
+  int_pm1_sensor: 1.5
+  sensor_board_cycle_counter: 1
+  ext_tacho_sensor_fan: 1
+  int_tacho_sensor_fan: 1
+  fan_speed_setting: 1
+  fan_target_speed: 1
+  temperature_celsius: 1.5
+  temperature_fahrenheit: 1.5
+  humidity_percentage: 1.5
+  tacho_primary_fan_0: 1
+  tacho_primary_fan_1: 1
+  tacho_primary_fan_2: 1
+  tacho_primary_fan_3: 1
+  ip: MyString
+  port: 1
